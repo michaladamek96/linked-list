@@ -207,5 +207,41 @@ void deleteElement(Node** list, int index)
 
 void swapElements(Node** list, int a, int b)
 {
- //TO DO;
+    int size = sizeList(*list);
+    Node *ptrA, *ptrB, *prevA, *prevB;
+    Node* temp;
+
+    if(a < size && b < size)
+    {
+        if(a!=0)
+        {
+            prevA = getElement(*list, a-1);
+            ptrA = prevA->next;
+        }
+        else
+            ptrA = getElement(*list, a);
+
+        if(b!=0)
+        {
+            prevB = getElement(*list, b-1);
+            ptrB = prevB->next;
+        }
+        else
+            ptrB = getElement(*list, b);
+
+        if(a!=0)
+            prevA->next = ptrB;
+        if(b!=0)
+            prevB->next = ptrA;
+
+        temp = ptrA->next;
+        ptrA->next = ptrB->next;
+        ptrB->next = temp;
+
+        if(a==0)
+            *list = ptrB;
+        else if(b==0)
+            *list = ptrA;
+
+    }
 }

@@ -39,7 +39,15 @@ int main()
     printList(list);
     printf("\n");
 
-    printf("\n8. Delete list\n");
+    printf("\n8. Swap elements at index=1 and 2 and then index=0 and 2\n");
+    swapElements(&list, 1, 2);
+    printList(list);
+    printf("\n");
+    swapElements(&list, 0, 2);
+    printList(list);
+    printf("\n");
+
+    printf("\n9. Delete list\n");
     deleteList(&list);
     printf("List size=%d\n",sizeList(list));
     printf("\n");

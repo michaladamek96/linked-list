@@ -24,6 +24,7 @@ void deleteElement(Node** list, int index);
 int pop(Node** list);
 
 void reverseList(Node** list);
+void swapElements(Node** list, int a, int b);
 
 
 #endif
