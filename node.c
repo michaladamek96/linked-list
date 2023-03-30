@@ -60,7 +60,6 @@ void deleteList(Node** list)
     Node* ptr;
     while (*list != NULL)
     {
-        //printf("addr=%d",*list)
         ptr = *list;
         *list = (*list)->next;
         free(ptr);
@@ -243,4 +242,22 @@ void swapElements(Node** list, int a, int b)
             *list = ptrB;
 
     }
+}
+
+void sortList(Node** list)
+{
+    int n = sizeList(*list);
+
+    do
+    {
+        for(int i=0; i<n-1; i++)
+        {
+            if (showElement(*list, i) > showElement(*list, i+1))
+            {
+                swapElements(list, i, i+1);
+            }
+        }
+        --n;
+    } while (n > 1);
+    
 }

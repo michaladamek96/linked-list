@@ -4,10 +4,10 @@
 
 int main()
 {
-    int arr[] = { 1,2,3 };
+    int arr[] = { 6,2,0,100,4,12 };
 
     printf("1. Create list\n");
-    Node* list = createList(arr, 3);
+    Node* list = createList(arr, 6);
     printf("List size=%d\n",sizeList(list));
 
     printf("\n2. Print list\n");
@@ -47,7 +47,13 @@ int main()
     printList(list);
     printf("\n");
 
-    printf("\n9. Delete list\n");
+
+    printf("\n9. Sort list\n");
+    sortList(&list);
+    printList(list);
+    printf("\n");
+
+    printf("\n10. Delete list\n");
     deleteList(&list);
     printf("List size=%d\n",sizeList(list));
     printf("\n");
