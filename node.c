@@ -211,8 +211,15 @@ void swapElements(Node** list, int a, int b)
     Node *ptrA, *ptrB, *prevA, *prevB;
     Node* temp;
 
-    if(a < size && b < size)
+    if(a < size && b < size && a != b)
     {
+        if(b==0)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
         if(a!=0)
         {
             prevA = getElement(*list, a-1);
@@ -221,18 +228,12 @@ void swapElements(Node** list, int a, int b)
         else
             ptrA = getElement(*list, a);
 
-        if(b!=0)
-        {
-            prevB = getElement(*list, b-1);
-            ptrB = prevB->next;
-        }
-        else
-            ptrB = getElement(*list, b);
+        prevB = getElement(*list, b-1);
+        ptrB = prevB->next;
 
         if(a!=0)
             prevA->next = ptrB;
-        if(b!=0)
-            prevB->next = ptrA;
+        prevB->next = ptrA;
 
         temp = ptrA->next;
         ptrA->next = ptrB->next;
@@ -240,8 +241,6 @@ void swapElements(Node** list, int a, int b)
 
         if(a==0)
             *list = ptrB;
-        else if(b==0)
-            *list = ptrA;
 
     }
 }
