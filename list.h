@@ -1,5 +1,5 @@
-#ifndef NODE_H_
-#define NODE_H_
+#ifndef LIST_H_
+#define LIST_H_
 
 typedef struct Node {
     int value;
